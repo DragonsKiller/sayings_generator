@@ -31,7 +31,7 @@ class WordsController < ApplicationController
 
     respond_to do |format|
       if @word.save
-        format.html { redirect_to @saying, notice: 'Word was successfully created.' }
+        format.html { redirect_to sayings_path, notice: 'Word was successfully created.' }
         format.json { render :show, status: :created, location: @saying }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to @saying, notice: 'Word was successfully updated.' }
+        format.html { redirect_to sayings_path, notice: 'Word was successfully updated.' }
         format.json { render :show, status: :ok, location: @saying }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class WordsController < ApplicationController
   def destroy
     @word.destroy
     respond_to do |format|
-      format.html { redirect_to saying_words_url(@saying), notice: 'Word was successfully destroyed.' }
+      format.html { redirect_to sayings_path, notice: 'Word was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

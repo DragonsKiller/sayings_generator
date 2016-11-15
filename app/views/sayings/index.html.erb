@@ -51,6 +51,7 @@
             <td><%= word.created_at %></td>
             <%= form_for([saying, word]) do |f| %>
               <td><%= f.text_field :user_word, :required => true, :pattern => '[^ \f\n\r\t\v.]+'%></td>
+              <td><%= f.text_field :user_name, :value => current_user.username, :readonly => true %></td>
               <td><%= f.submit %></td>
             <% end %>
             <td><%= link_to 'Destroy', polymorphic_url([saying, word]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
